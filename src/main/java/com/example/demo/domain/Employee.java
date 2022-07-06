@@ -80,7 +80,7 @@ public class Employee {
 	public String getmailAddress() {
 		return mailAddress;
 	}
-	public void setMailSdress(String mailAddress) {
+	public void setMailAddress(String mailAddress) {
 		this.mailAddress = mailAddress;
 	}
 	public String getZipCode() {
