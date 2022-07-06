@@ -1,24 +1,16 @@
 package com.example.demo.form;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-
 public class InsertAdministratorForm {
 	/** 名前 */
-	@NotBlank
 	private String name;
 	/** メールアドレス */
-	@NotBlank
-	@Email
 	private String mailAddress;
 	/** パスワード */
-	@NotBlank
 	private String password;
 	
 	public InsertAdministratorForm() {
 	}
-	public InsertAdministratorForm(@NotBlank String name, @NotBlank @Email String mailAddress,
-			@NotBlank String password) {
+	public InsertAdministratorForm(String name, String mailAddress, String password) {
 		super();
 		this.name = name;
 		this.mailAddress = mailAddress;
