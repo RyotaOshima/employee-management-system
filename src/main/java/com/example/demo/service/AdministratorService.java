@@ -30,4 +30,13 @@ public class AdministratorService {
 	public Administrator login(String mailAddress, String password) {
 		return repository.findByMailAdressAndPassword(mailAddress, password);
 	}
+	
+	/**
+	 * メールアドレス重複チェック
+	 * @param mailAddress
+	 * @return repository.findByMailAddress
+	 */
+	public Administrator findBymailAddress(String mailAddress) {
+		return repository.findByMailAddress(mailAddress);
+	}
 }
