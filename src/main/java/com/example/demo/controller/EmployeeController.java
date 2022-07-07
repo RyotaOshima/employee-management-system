@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.domain.Employee;
+import com.example.demo.form.UpdateEmployeeForm;
 import com.example.demo.service.EmployeeService;
 
 @Controller
@@ -15,6 +17,15 @@ import com.example.demo.service.EmployeeService;
 public class EmployeeController {
 	@Autowired
 	private EmployeeService service;
+	
+	/**
+	 * UpdateEmployeeFormをリクエストスコープに格納
+	 * @return UpdateEmployeeForm
+	 */
+	@ModelAttribute
+	public UpdateEmployeeForm setUpdateEmployeeForm() {
+		return new UpdateEmployeeForm();
+	}
 	
 	/**
 	 * 従業員情報の全件取得
@@ -26,5 +37,19 @@ public class EmployeeController {
 		List<Employee> employeeList = service.showList();
 		model.addAttribute("employeeList",employeeList);
 		return "employee/list";
+	}
+	
+	/**
+	 * 従業員の詳細情報の表示
+	 * @param id
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/showDetail")
+	public String showDateil(String id,Model model) {
+		Employee employee = service.showDetail(Integer.parseInt(id));
+		model.addAttribute("employee", employee);
+		System.out.println(employee);
+		return "employee/detail";
 	}
 }

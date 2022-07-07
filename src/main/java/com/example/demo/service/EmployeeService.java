@@ -16,11 +16,20 @@ public class EmployeeService {
 	private EmployeeRepository repository;
 	
 	/**
-	 * 従業員一覧の全件取得
+	 * 従業員の全件取得
 	 * @return employeeList
 	 */
 	public List<Employee> showList() {
 		List<Employee> employeeList = repository.findAll();
 		return employeeList;
+	}
+	
+	/**
+	 * 従業員の詳細情報の取得
+	 * @param id
+	 * @return repository.load
+	 */
+	public Employee showDetail(Integer id) {
+		return repository.load(id);
 	}
 }
