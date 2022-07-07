@@ -38,7 +38,7 @@ public class EmployeeRepository {
 	private NamedParameterJdbcTemplate template;
 	
 	/**
-	 * 従業員情報の全件取得
+	 * 従業員の全件取得
 	 * @return employeeList
 	 */
 	public List<Employee> findAll() {
@@ -49,7 +49,7 @@ public class EmployeeRepository {
 	}
 	
 	/**
-	 * 従業員情報の取得
+	 * 従業員の詳細情報の取得
 	 * @param id
 	 * @return employee
 	 */
