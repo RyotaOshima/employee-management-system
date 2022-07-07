@@ -50,6 +50,12 @@ public class AdministratorController {
 		return "administrator/login";
 	}
 	
+	/**
+	 * ログイン
+	 * @param form
+	 * @param model
+	 * @return forward:/employee/showList
+	 */
 	@RequestMapping("/login")
 	public String login(LoginForm form, Model model) {
 		Administrator administrator = service.login(form.getMailAddress(), form.getPassword());
@@ -80,6 +86,12 @@ public class AdministratorController {
 		Administrator administrator = new Administrator();
 		BeanUtils.copyProperties(form, administrator);
 		service.insert(administrator);
+		return "redirect:/";
+	}
+	
+	@RequestMapping("/logout")
+	public String logout() {
+		session.invalidate();
 		return "redirect:/";
 	}
 }
