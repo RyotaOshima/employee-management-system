@@ -30,7 +30,7 @@ public class EmployeeController {
 	/**
 	 * 従業員情報の全件取得
 	 * @param model
-	 * @return
+	 * @return list.html
 	 */
 	@RequestMapping("/showList")
 	public String showList(Model model) {
@@ -43,12 +43,26 @@ public class EmployeeController {
 	 * 従業員の詳細情報の表示
 	 * @param id
 	 * @param model
-	 * @return
+	 * @return detail.html
 	 */
 	@RequestMapping("/showDetail")
 	public String showDateil(String id,Model model) {
 		Employee employee = service.showDetail(Integer.parseInt(id));
 		model.addAttribute("employee", employee);
 		return "employee/detail";
+	}
+	
+	/**
+	 * 従業員の扶養人数の変更
+	 * @param form
+	 * @return /employee/showList
+	 */
+	@RequestMapping("/update")
+	public String update(UpdateEmployeeForm form) {
+		int dependentsCount = Integer.parseInt(form.getId());
+		Employee employee = service.showDetail(dependentsCount);
+		employee.setDependentsCount(Integer.parseInt(form.getDependentsCount()));
+		service.update(employee);
+		return "redirect:/employee/showList";
 	}
 }

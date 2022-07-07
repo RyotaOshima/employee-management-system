@@ -56,7 +56,7 @@ public class AdministratorController {
 	 * ログイン
 	 * @param form
 	 * @param model
-	 * @return forward:/employee/showList
+	 * @return login.html or /employee/showList
 	 */
 	@RequestMapping("/login")
 	public String login(LoginForm form, Model model) {
@@ -81,7 +81,7 @@ public class AdministratorController {
 	/**
 	 * 管理者情報の登録
 	 * @param form
-	 * @return login.html
+	 * @return insert.html or /
 	 */
 	@RequestMapping("/insert")
 	public String insert(@Validated InsertAdministratorForm form, BindingResult result, Model model) {
@@ -100,7 +100,7 @@ public class AdministratorController {
 	
 	/**
 	 * ログアウト
-	 * @return login.html
+	 * @return /
 	 */
 	@RequestMapping("/logout")
 	public String logout() {

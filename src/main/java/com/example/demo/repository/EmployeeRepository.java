@@ -43,7 +43,7 @@ public class EmployeeRepository {
 	 */
 	public List<Employee> findAll() {
 		String sql = "select id,name,image,gender,hire_date,mail_address,zip_code,address"
-				+ " ,telephone,salary,characteristics,dependents_count from employees;";
+				+ " ,telephone,salary,characteristics,dependents_count from employees order by hire_date;";
 		List<Employee> employeeList = template.query(sql, EMPLOYEE_ROW_MAPPER);
 		return employeeList;
 	}
@@ -62,7 +62,7 @@ public class EmployeeRepository {
 	}
 	
 	/**
-	 * 従業員情報の更新
+	 * 従業員の扶養人数の変更
 	 * @param employee
 	 */
 	public void update(Employee employee) {
