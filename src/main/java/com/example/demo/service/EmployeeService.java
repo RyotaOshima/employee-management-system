@@ -32,4 +32,12 @@ public class EmployeeService {
 	public Employee showDetail(Integer id) {
 		return repository.load(id);
 	}
+	
+	/**
+	 * 従業員の扶養人数の変更
+	 * @param employee
+	 */
+	public void update(Employee employee) {
+		repository.update(employee);
+	}
 }
